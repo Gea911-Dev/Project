@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/SIGAP_Gentong/$1"
+    }
+  ]
+}
