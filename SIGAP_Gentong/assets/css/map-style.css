@@ -1,0 +1,71 @@
+/* General Body and Map Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#map {
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Leaflet Popup Styling */
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.leaflet-popup-content {
+    margin: 15px 20px;
+    line-height: 1.6;
+}
+
+.popup-container h3 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.1em; /* Adjusted font size */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.popup-container p {
+    margin: 0 0 15px;
+    color: #555;
+}
+
+/* Route Button Styling */
+.route-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.route-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    color: #fff; /* Ensure text color remains white on hover */
+}
+
+/* Leaflet Control Zoom Styling */
+.leaflet-bar a, .leaflet-bar a:hover {
+    border-radius: 50% !important;
+    width: 34px !important;
+    height: 34px !important;
+    line-height: 34px !important;
+    border: none !important;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    margin-bottom: 10px !important;
+}
+
+.leaflet-control-zoom {
+    border: none !important;
+}

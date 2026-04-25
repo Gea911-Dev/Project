@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeri Dokumentasi - SIGAP Gentong</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background-color: #f8f9fa;
+
+        }
+
+
+
+        /* Hero Section */
+
+        .gallery-hero {
+
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/hero-bg.jpg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+            padding: 100px 0 60px 0;
+
+            text-align: center;
+
+        }
+
+
+
+        /* Gallery Style */
+
+        .gallery-item {
+
+            overflow: hidden;
+
+            border-radius: 15px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+            transition: transform 0.3s ease;
+
+            cursor: pointer;
+
+            position: relative;
+
+            background: white;
+
+        }
+
+
+
+        .gallery-item:hover {
+
+            transform: translateY(-10px);
+
+        }
+
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            transition: transform 0.5s ease;
+
+        }
+
+
+
+        .gallery-item:hover img {
+
+            transform: scale(1.1);
+
+        }
+
+
+
+        .gallery-caption {
+
+            padding: 15px;
+
+            background: white;
+
+        }
+
+
+
+        .gallery-caption h6 {
+
+            margin: 0;
+
+            color: #2c3e50;
+
+            font-weight: 600;
+
+        }
+
+
+
+        .gallery-caption small {
+
+            color: #7f8c8d;
+
+        }
+
+
+
+        /* Badge untuk kategori */
+
+        .category-badge {
+
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            z-index: 10;
+
+        }
+
+
+
+        /* Modal Customization */
+
+        .modal-content {
+
+            border-radius: 20px;
+
+            border: none;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">SIGAP GENTONG</a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="index.html">1. Cuaca & Rute (Pre-Trip)</a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="halaman2.html">2. Tiket & Pengunjung</a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link active" href="halaman3.html">3. Galeri Dokumentasi</a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+    <header class="gallery-hero">
+
+        <div class="container">
+
+            <h1 class="display-4 fw-bold">Jelajahi Sumber Gentong</h1>
+
+            <p class="lead">Dokumentasi visual keasrian alam dan fasilitas wisata</p>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="container my-5">
+
+        <div class="row g-4">
+
+            
+
+            <div class="col-md-4 col-sm-6">
+
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#photoModal" onclick="showPhoto('assets/images/galeri/foto1.jpg', 'Kolam Utama Sumber Gentong')">
+
+                    <span class="badge bg-success category-badge">Wisata Air</span>
+
+                    <img src="assets/images/galeri/foto1.jpg" alt="Sumber Gentong 1">
+
+                    <div class="gallery-caption">
+
+                        <h6>Kolam Utama</h6>
+
+                        <small>Area berenang air sumber alami</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4 col-sm-6">
+
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#photoModal" onclick="showPhoto('assets/images/galeri/foto2.jpg', 'Area Gazebo & Istirahat')">
+
+                    <span class="badge bg-primary category-badge">Fasilitas</span>
+
+                    <img src="assets/images/galeri/foto2.jpg" alt="Sumber Gentong 2">
+
+                    <div class="gallery-caption">
+
+                        <h6>Area Gazebo</h6>
+
+                        <small>Tempat bersantai keluarga</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4 col-sm-6">
+
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#photoModal" onclick="showPhoto('assets/images/galeri/foto3.jpg', 'Spot Foto Instagramable')">
+
+                    <span class="badge bg-warning text-dark category-badge">Spot Foto</span>
+
+                    <img src="assets/images/galeri/foto3.jpg" alt="Sumber Gentong 3">
+
+                    <div class="gallery-caption">
+
+                        <h6>Jembatan Kayu</h6>
+
+                        <small>Spot favorit untuk berfoto</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            </div>
+
+    </main>
+
+
+
+    <footer class="bg-dark text-white py-4 mt-5">
+
+        <div class="container text-center">
+
+            <p class="mb-0">&copy; 2026 SIGAP Gentong </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content">
+
+                <div class="modal-header border-0">
+
+                    <h5 class="modal-title fw-bold" id="modalTitle">Judul Foto</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+
+                <div class="modal-body p-0 text-center">
+
+                    <img id="modalImg" src="" class="img-fluid rounded-bottom w-100" alt="Preview">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        function showPhoto(src, title) {
+
+            document.getElementById('modalImg').src = src;
+
+            document.getElementById('modalTitle').innerText = title;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+
+

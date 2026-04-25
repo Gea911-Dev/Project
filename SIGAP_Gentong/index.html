@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Pariwisata - Sumber Gentong</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="assets/css/map-style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-successvbixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">SIGAP GENTONG</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">1. Cuaca & Rute (Pre-Trip)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="halaman2.html">2. Tiket & Pengunjung</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="halaman3.html">3. Galeri Dokumentasi</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 100px;">
+    <h1 class="text-center fw-bold mb-2">Wisata Alam Sumber Gentong</h1>
+    <p class="text-center text-muted mb-5">Dusun Gentong, Tirtomoyo, Kec. Pakis, Kabupaten Malang</p>
+
+    <div class="row g-4">
+        <div class="col-md-5">
+            <div class="card shadow-sm mb-4 border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">🌧️Kondisi Cuaca Real-time</h5>
+                </div>
+                <div class="card-body p-0">
+                    <a class="weatherwidget-io" href="https://forecast7.com/en/n7d97112d63/malang/" data-label_1="MALANG" data-label_2="WEATHER" data-theme="original" >MALANG WEATHER</a>
+                    <script>
+                    !!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                    </script>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 border-start border-warning border-4">
+                <div class="card-body">
+                    <h5 class="card-title">Saran & Waktu Pre-Trip</h5>
+                    <p class="card-text"><strong>Waktu Terbaik:</strong> Pagi (07:00 - 10:00 WIB) untuk menikmati udara segar, atau Sore (14:00 - 16:00 WIB).</p>
+                    <div class="alert alert-warning mb-0" role="alert">
+                        <strong>Perhatian:</strong> Jika status cuaca di atas menunjukkan <em>Hujan</em>, akses jalan desa menuju Dusun Gentong mungkin sedikit licin. Sangat disarankan membawa jas hujan dan hindari penggunaan motor matic dengan rem kurang prima di jalur turunan tajam.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Informasi Rute & Jalur Alternatif</h5>
+                </div>
+                <div class="card-body">
+                    <div id="map" style="height: 250px; border-radius: 8px; margin-bottom: 1rem;"></div>
+                    
+                    <h6 class="fw-bold mb-3">Pilihan Jalur dari Pusat Kota Malang:</h6>
+                    
+                    <div class="accordion" id="jalurAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#jalur1">
+                                    1. Jalur Utama (Via Jl. Raya Wendit)
+                                </button>
+                            </h2>
+                            <div id="jalur1" class="accordion-collapse collapse show" data-bs-parent="#jalurAccordion">
+                                <div class="accordion-body">
+                                    <strong>Estimasi Waktu: 30-40 Menit.</strong><br> 
+                                    Ini adalah rute paling umum. Melewati perempatan Blimbing, lurus ke arah timur menuju Wendit, lalu masuk ke arah Pakis. Jalan beraspal lebar, namun rawan padat merayap di sekitar area Wendit saat akhir pekan.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jalur2">
+                                    2. Jalur Alternatif (Via Sawojajar - Sekarpuro)
+                                </button>
+                            </h2>
+                            <div id="jalur2" class="accordion-collapse collapse" data-bs-parent="#jalurAccordion">
+                                <div class="accordion-body">
+                                    <strong>Estimasi Waktu: 35-45 Menit.</strong><br> 
+                                    Rute ini lebih sepi dari kendaraan besar karena melintasi area perumahan dan jalan tembus antar desa. Sangat direkomendasikan untuk pengendara roda dua yang ingin menghindari lampu merah dan kemacetan jalan provinsi.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<!-- Data & App Logic -->
+<script src="assets/js/data.js"></script>
+<script>
+    // Inisialisasi Peta
+    const map = L.map('map').setView([-7.9386, 112.6785], 12);
+
+    // Basemap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Marker Cluster
+    const markers = L.markerClusterGroup();
+
+    // Loop Data
+    wisataData.forEach(lokasi => {
+        const popupContent = `
+            <div class="popup-container">
+                <h6>${lokasi.nama}</h6>
+                <p>${lokasi.deskripsi}</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${lokasi.lat},${lokasi.lng}" target="_blank" class="route-button">Buka Rute</a>
+            </div>
+        `;
+        const marker = L.marker([lokasi.lat, lokasi.lng]).bindPopup(popupContent);
+        markers.addLayer(marker);
+    });
+    map.addLayer(markers);
+
+    // Geolocation
+    L.control.locate().addTo(map);
+</script>
+</body>
+</html>
