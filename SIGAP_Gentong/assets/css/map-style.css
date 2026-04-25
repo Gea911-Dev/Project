@@ -1,16 +1,4 @@
-/* General Body and Map Styling */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#map {
-    height: 100vh;
-    width: 100vw;
-}
-
-/* Leaflet Popup Styling */
+/* General Popup Styling */
 .leaflet-popup-content-wrapper {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -19,12 +7,13 @@ body {
 .leaflet-popup-content {
     margin: 15px 20px;
     line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .popup-container h3 {
     margin: 0 0 10px;
     color: #333;
-    font-size: 1.1em; /* Adjusted font size */
+    font-size: 1.2em;
     border-bottom: 1px solid #eee;
     padding-bottom: 8px;
 }
